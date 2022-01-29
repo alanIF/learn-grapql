@@ -48,6 +48,7 @@ const typeDefs= gql`
     type Query{
         usuarios:[Usuario]
         produtos:[Produto]
+        usuario(id: Int): Usuario
     }
 `;
 
@@ -56,13 +57,15 @@ const resolvers ={
        usuarios(){
            return usuarios;
        }
-       
     , 
+       usuario(_, args){
+            return usuarios.find((usuario) => usuario.id === args.id);
+       },
        produtos(){
             return produtos;
        }
     }
-}
+};
 
 // fim dos tipos de dados
 const  server= new ApolloServer({
