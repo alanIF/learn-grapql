@@ -9,3 +9,10 @@ Aprendizados de GraphQL
     1- npm init -y gerar packjson
     2-  npm i -D nodemon
     3- npm i graphql apollo-server
+
+# Type dados scalar types
+    - int
+    -float
+    -string
+    -boolean
+    -ID
