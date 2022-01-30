@@ -16,3 +16,31 @@ Aprendizados de GraphQL
     -string
     -boolean
     -ID
+# Tipo de consulta referenciada
+query ExampleQuery {
+    consulta1: usuario(id:2) {
+      nome
+      perfil {
+        descricao
+      }
+    consulta2: usuario(id:1) {
+      nome
+      perfil {
+        descricao
+      }
+}}
+# Fragment
+query ExampleQuery {
+  listUsuarios {
+     ... user
+  }  
+}
+
+fragment user on Usuario{
+  id
+  nome
+  email
+  perfil {
+    descricao
+  }
+}

@@ -1,7 +1,8 @@
 const {gql, ApolloServer} = require ("apollo-server")
 
 
-const db=[{
+const db = {
+    usuarios : [{
         id:1,
         nome:"Alan",
         email:"alan_tj@hotmail.com.br",
@@ -21,11 +22,13 @@ const db=[{
         perfil:2
 
     }
-];
-const perfis =[
-    {id:1 , descricao:"ADM"},
-    {id:2 , descricao: "Funcionario"}
-];
+],
+    perfis :[
+        {id:1 , descricao:"ADM"},
+        {id:2 , descricao: "Funcionario"}
+    ]
+};
+   
 
 const typeDefs= gql`
     type Perfil{
@@ -42,6 +45,7 @@ const typeDefs= gql`
     type Query{
         usuario(id:Int): Usuario
         perfis: [Perfil]
+        listUsuarios:[Usuario]
     }
 `;
 
@@ -49,17 +53,20 @@ const resolvers ={
     Usuario:{
         perfil(usuario){
             console.log(usuario)
-            return perfis.find((p) => p.id === usuario.perfil);
+            return db.perfis.find((p) => p.id === usuario.perfil);
         }
     },
     Query:{
        usuario(_, args){
-           return db.find((db)=> db.id ===args.id);
+           return db.usuarios.find((db)=> db.id ===args.id);
        },
        perfis(){
-           return perfis;
+           return db.perfis;
+       },
+       listUsuarios(){
+           return db.usuarios;
        }
-     
+
     },
 };
 
