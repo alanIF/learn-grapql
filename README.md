@@ -44,3 +44,22 @@ fragment user on Usuario{
     descricao
   }
 }
+
+# Nomeando Query
+query getUser{
+  listUsuarios {
+    id
+    nome
+    email
+    perfil {
+      descricao
+    }
+  }
+}
+
+# Passagem de parametro
+query getUser($id: Int){
+  usuario(id: $id){
+    nome email
+  }
+}

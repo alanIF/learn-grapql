@@ -31,9 +31,14 @@ const db = {
    
 
 const typeDefs= gql`
+    enum TipoPerfil{
+        ADM
+        Funcionario
+        Cliente
+    }
     type Perfil{
         id:Int
-        descricao:String
+        descricao:TipoPerfil
     }
     type Usuario{
         id:Int
