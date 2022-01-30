@@ -20,5 +20,8 @@
   "homepage": "https://github.com/alanIF/learn-grapql#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "graphql-tools": "^8.2.0"
   }
 }
