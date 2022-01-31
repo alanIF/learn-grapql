@@ -63,3 +63,15 @@ query getUser($id: Int){
     nome email
   }
 }
+# Mutation 
+   - criar novo usuario por exemplo
+   mutation{
+  criarUsuario (nome:"Kas"
+    email:"anto@gmail"){
+      nome id perfil {
+        descricao
+      }
+    }
+    
+  
+}
