@@ -75,3 +75,17 @@ query getUser($id: Int){
     
   
 }
+
+# Input
+  Agrupar parametros
+  input   UsuarioInput{
+    nome: String,
+    email: String
+  }
+  type Mutation {
+    atualizarUsuario(id:Int, data: UsuarioInput): Usuario
+  }
+
+  no Resolvers
+  
+  atualizarUsuario(_ , {data}){...}
