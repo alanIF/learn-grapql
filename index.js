@@ -41,6 +41,7 @@ const typeDefs= gql`
     type Mutation{
         criarUsuario(nome:String
         email:String):Usuario
+        deletarusuario(id:Int):boolean
         
     }
     type Query{
@@ -85,6 +86,11 @@ const resolvers ={
             };
             db.push(novoUsuario);
             return novoUsuario;
+        },
+        deletarusuario(_, args){
+            usuario = db.find((db)=> db.id ===args.id);
+            db.pop(usuario);
+            return true;
         }
     }
 };
